@@ -21,7 +21,7 @@ export function PriceCard() {
     down:    { color: 'text-red-400',   icon: '▼' },
     neutral: { color: 'text-yellow-400', icon: '◆' },
   }
-  const tc = trendConfig[trend?.direction ?? 'neutral']
+  const tc = trendConfig[(trend?.direction ?? 'neutral') as keyof typeof trendConfig] ?? trendConfig.neutral
 
   // Variation depuis le premier tick de la session
   const variation = (() => {
