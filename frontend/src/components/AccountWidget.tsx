@@ -3,7 +3,7 @@
  * Montre : solde, loginid, bouton de connexion/refresh.
  * Clique → ouvre le panneau complet dans les détails.
  */
-import { useState, useEffect } from 'react'
+const API = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
 
 interface AccountSummary {
   loginid: string
@@ -28,7 +28,7 @@ export function AccountWidget({ onOpenDetails }: Props) {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch('http://localhost:8000/account/info')
+      const res = await fetch(`${API}/account/info`)
       if (res.ok) {
         const data = await res.json()
         setAccount(data)
@@ -49,7 +49,7 @@ export function AccountWidget({ onOpenDetails }: Props) {
     if (!tokenInput.trim()) return
     try {
       // Envoyer le token au backend via un endpoint dédié
-      const res = await fetch('http://localhost:8000/account/set-token', {
+      const res = await fetch(`${API}/account/set-token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: tokenInput.trim() }),

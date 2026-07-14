@@ -38,7 +38,7 @@ interface Transaction {
   timestamp: number
 }
 
-const API = 'http://localhost:8000'
+const API = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
 
 export function AccountPanel() {
   const [info, setInfo] = useState<AccountInfo | null>(null)

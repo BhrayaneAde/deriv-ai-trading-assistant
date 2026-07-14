@@ -15,7 +15,7 @@ export function CapitalSettings() {
     if (isNaN(val) || val < 1) return
 
     try {
-      await fetch(`http://localhost:8000/settings/amount?amount=${val}`, { method: 'POST' })
+      await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'}/settings/amount?amount=${val}`, { method: 'POST' })
       setBaseAmount(val)
       setSaved(true)
       setTimeout(() => setSaved(false), 2000)

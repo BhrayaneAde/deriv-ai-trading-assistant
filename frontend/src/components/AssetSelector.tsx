@@ -48,7 +48,7 @@ export function AssetSelector({ onSelect }: Props) {
     if (symbol === currentSymbol) return
     setLoading(symbol)
     try {
-      await fetch(`http://localhost:8000/settings/symbol?symbol=${symbol}`, { method: 'POST' })
+      await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'}/settings/symbol?symbol=${symbol}`, { method: 'POST' })
       onSelect(symbol)
     } catch {
       onSelect(symbol) // mise à jour locale même si backend indisponible
