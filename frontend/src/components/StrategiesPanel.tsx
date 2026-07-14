@@ -171,11 +171,6 @@ export function StrategiesPanel() {
   }
 
   const { consensus, filters, verdict, enter_now } = strats
-  const stratList = [
-    { key: 'trend_pullback',  data: strats.strategies.trend_pullback  },
-    { key: 'breakout_retest', data: strats.strategies.breakout_retest },
-    { key: 'multi_timeframe', data: strats.strategies.multi_timeframe },
-  ]
 
   return (
     <div className="bg-gray-800 rounded-2xl border border-gray-700 p-5">

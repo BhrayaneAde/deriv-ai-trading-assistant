@@ -159,8 +159,8 @@ export function DecisionBanner() {
                 <p className="text-white font-mono font-bold text-lg">
                   {stake?.enter_now ? `${stake.amount.toFixed(2)}$` : '—'}
                 </p>
-                {stake?.pct_of_capital > 0 && (
-                  <p className="text-gray-500 text-xs">{stake.pct_of_capital}% de {baseAmount}$</p>
+                {(stake?.pct_of_capital ?? 0) > 0 && (
+                  <p className="text-gray-500 text-xs">{stake!.pct_of_capital}% de {baseAmount}$</p>
                 )}
               </div>
               {pos && (
@@ -259,8 +259,8 @@ export function DecisionBanner() {
               <p className="text-white font-mono font-bold text-lg">
                 {stake?.enter_now ? `${stake.amount.toFixed(2)}$` : '—'}
               </p>
-              {stake?.pct_of_capital > 0 && (
-                <p className="text-gray-500 text-xs">{stake.pct_of_capital}% de {baseAmount}$</p>
+              {(stake?.pct_of_capital ?? 0) > 0 && (
+                <p className="text-gray-500 text-xs">{stake!.pct_of_capital}% de {baseAmount}$</p>
               )}
             </div>
             {pos && (

@@ -13,9 +13,9 @@ const SYMBOL_LABELS: Record<string, string> = {
 }
 
 export function PriceCard() {
-  const { currentTick, ticks, symbol, analysis } = useMarketStore()
+  const { currentTick, ticks, currentSymbol: symbol, analysis } = useMarketStore()
 
-  const trend = analysis?.trend
+  const trend = (analysis as any)?.trend
   const trendConfig = {
     up:      { color: 'text-green-400', icon: '▲' },
     down:    { color: 'text-red-400',   icon: '▼' },

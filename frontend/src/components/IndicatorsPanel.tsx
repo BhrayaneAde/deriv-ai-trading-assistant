@@ -67,7 +67,7 @@ export function IndicatorsPanel() {
     : 'text-red-400'
 
   // Couleur prix vs Bollinger
-  const priceVsBB = (() => {
+  void (() => {
     if (!ind?.bb_upper || !ind?.bb_lower || !currentTick) return null
     if (currentTick.price >= ind.bb_upper) return 'text-red-400'
     if (currentTick.price <= ind.bb_lower) return 'text-green-400'
