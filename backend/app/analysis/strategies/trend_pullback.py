@@ -219,9 +219,10 @@ def run(
     active = total >= MIN_SCORE
 
     if active:
+        rsi_str = f"{rsi14:.1f}" if rsi14 is not None else "N/A"
         reason = (
             f"Tendance {trend_dir} confirmée — pullback sur {pullback_label or 'EMA'} "
-            f"avec RSI {rsi14:.1f if rsi14 else 'N/A'}. Score {total}/100."
+            f"avec RSI {rsi_str}. Score {total}/100."
         )
     else:
         reason = (

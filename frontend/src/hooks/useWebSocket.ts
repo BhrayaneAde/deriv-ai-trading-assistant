@@ -4,7 +4,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { useMarketStore, type Analysis, type Timeframe, type OHLCCandle } from '../store/marketStore'
 
-const WS_URL = 'ws://localhost:8000/market/ws'
+const WS_URL = import.meta.env.VITE_BACKEND_WS_URL || 'ws://localhost:8000/market/ws'
 const RECONNECT_DELAY = 3000
 
 export function useWebSocket() {
