@@ -114,19 +114,19 @@ def check_confirmation(
                 if i == 0: ok.append(f"RSI favorable {r14:.1f} > 45")
             else:
                 candle_ok = False
-                if i == 0: failed.append(f"RSI défavorable {r14:.1f if r14 else 'N/A'} ≤ 45")
+                if i == 0: failed.append(f"RSI défavorable {f'{r14:.1f}' if r14 else 'N/A'} ≤ 45")
 
             if m["histogram"] and m["histogram"] > 0:
                 if i == 0: ok.append(f"MACD histogram positif {m['histogram']:.4f}")
             else:
                 candle_ok = False
-                if i == 0: failed.append(f"MACD histogram négatif {m['histogram']:.4f if m['histogram'] else 'N/A'}")
+                if i == 0: failed.append(f"MACD histogram négatif {f"{m['histogram']:.4f}" if m['histogram'] else 'N/A'}")
 
             if e20 and price > e20:
                 if i == 0: ok.append(f"Prix > EMA20 ({price:.2f} > {e20:.2f})")
             else:
                 candle_ok = False
-                if i == 0: failed.append(f"Prix ≤ EMA20 ({price:.2f} ≤ {e20:.2f if e20 else 'N/A'})")
+                if i == 0: failed.append(f"Prix ≤ EMA20 ({price:.2f} ≤ {f'{e20:.2f}' if e20 else 'N/A'})")
 
         else:  # SELL
             if e20 and e50 and e20 < e50:
@@ -139,7 +139,7 @@ def check_confirmation(
                 if i == 0: ok.append(f"RSI favorable {r14:.1f} < 55")
             else:
                 candle_ok = False
-                if i == 0: failed.append(f"RSI défavorable {r14:.1f if r14 else 'N/A'} ≥ 55")
+                if i == 0: failed.append(f"RSI défavorable {f'{r14:.1f}' if r14 else 'N/A'} ≥ 55")
 
             if m["histogram"] and m["histogram"] < 0:
                 if i == 0: ok.append(f"MACD histogram négatif {m['histogram']:.4f}")
