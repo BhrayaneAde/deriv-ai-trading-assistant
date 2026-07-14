@@ -3,6 +3,8 @@
  * Montre : solde, loginid, bouton de connexion/refresh.
  * Clique → ouvre le panneau complet dans les détails.
  */
+import { useState, useEffect } from 'react'
+
 const API = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
 
 interface AccountSummary {
